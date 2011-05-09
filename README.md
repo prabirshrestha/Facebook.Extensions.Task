@@ -60,3 +60,7 @@ as Task Parallel Library comes bundled with .NET 4.0. For Silverlight and Window
 Note: Reference the appropriate Async libraries (AsyncCtpLibrary.dll or AsyncCtpLibrary\_Silverlight.dll or 
 AsyncCtpLibrary\_Phone.dll). You need to reference AsyncCtpLibrary.dll for .NET 4.0 also in this case unlike
 the above example.
+
+## License
+Facebook.Extensions.Tasks is intended to be used in both open-source and commercial environments. It is licensed
+under Microsoft Public License (Ms-PL).
