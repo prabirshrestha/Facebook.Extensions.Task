@@ -8,6 +8,9 @@ namespace Facebook
     using System.Threading.Tasks;
     using Facebook;
 
+    /// <summary>
+    /// Task Parallel Library extension methods for <see cref="FacebookClient"/>.
+    /// </summary>
     public static class FacebookClientTaskExtensions
     {
         /// <summary>
