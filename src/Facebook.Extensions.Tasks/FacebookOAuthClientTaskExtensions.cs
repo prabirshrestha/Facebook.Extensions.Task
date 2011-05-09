@@ -10,7 +10,7 @@ namespace Facebook
 
     public static class FacebookOAuthClientTaskExtensions
     {
-        public static Task<object> GetApplicationAccessTokenTaskAsync(this FacebookOAuthClient facebookOAuthClient, IDictionary<string, object> paramaters)
+        public static Task<object> GetApplicationAccessTokenTaskAsync(this FacebookOAuthClient facebookOAuthClient, IDictionary<string, object> parameters)
         {
             var tcs = FacebookClientTaskExtensions.CreateSource<object>(null);
 
@@ -21,7 +21,7 @@ namespace Facebook
 
             try
             {
-                facebookOAuthClient.GetApplicationAccessTokenAsync(paramaters, tcs);
+                facebookOAuthClient.GetApplicationAccessTokenAsync(parameters, tcs);
             }
             catch
             {
@@ -36,6 +36,34 @@ namespace Facebook
         public static Task<object> GetApplicationAccessTokenTaskAsync(this FacebookOAuthClient facebookOAuthClient)
         {
             return GetApplicationAccessTokenTaskAsync(facebookOAuthClient, null);
+        }
+
+        public static Task<object> ExchangeCodeForAccessTokenTaskAsync(this FacebookOAuthClient facebookOAuthClient, string code, IDictionary<string, object> parameters)
+        {
+            var tcs = FacebookClientTaskExtensions.CreateSource<object>(null);
+
+            EventHandler<FacebookApiEventArgs> handler = null;
+            handler = (sender, e) => FacebookClientTaskExtensions.TransferCompletionToTask<object>(tcs, e, () => e.GetResultData(), () => facebookOAuthClient.ExchangeCodeForAccessTokenCompleted -= handler);
+
+            facebookOAuthClient.GetApplicationAccessTokenCompleted += handler;
+
+            try
+            {
+                facebookOAuthClient.ExchangeCodeForAccessTokenAsync(code, parameters, tcs);
+            }
+            catch
+            {
+                facebookOAuthClient.ExchangeCodeForAccessTokenCompleted -= handler;
+                tcs.TrySetCanceled();
+                throw;
+            }
+
+            return tcs.Task;
+        }
+
+        public static Task<object> ExchangeCodeForAccessTokenTaskAsync(this FacebookOAuthClient facebookOAuthClient, string code)
+        {
+            return ExchangeCodeForAccessTokenTaskAsync(facebookOAuthClient, code, null);
         }
     }
 }
