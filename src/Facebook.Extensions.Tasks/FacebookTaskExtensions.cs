@@ -10,11 +10,24 @@ namespace Facebook
 
     public static class FacebookTaskExtensions
     {
+        /// <summary>
+        /// Makes an asynchronous DELETE request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="path">The resource path.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> DeleteTaskAsync(this FacebookClient facebookClient, string path)
         {
             return DeleteTaskAsync(facebookClient, path, null);
         }
 
+        /// <summary>
+        /// Makes an asynchronous DELETE request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="path">The resource path.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> DeleteTaskAsync(this FacebookClient facebookClient, string path, IDictionary<string, object> parameters)
         {
             Contract.Requires(!(string.IsNullOrEmpty(path) && parameters == null));
@@ -40,6 +53,12 @@ namespace Facebook
             return tcs.Task;
         }
 
+        /// <summary>
+        /// Makes an asynchronous GET request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="path">The resource path.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> GetTaskAsync(this FacebookClient facebookClient, string path)
         {
             Contract.Requires(!string.IsNullOrEmpty(path));
@@ -47,6 +66,13 @@ namespace Facebook
             return GetTaskAsync(facebookClient, path, null);
         }
 
+        /// <summary>
+        /// Makes an asynchronous GET request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="path">The resource path.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> GetTaskAsync(this FacebookClient facebookClient, string path, IDictionary<string, object> parameters)
         {
             Contract.Requires(!(string.IsNullOrEmpty(path) && parameters == null));
@@ -72,6 +98,12 @@ namespace Facebook
             return tcs.Task;
         }
 
+        /// <summary>
+        /// Makes an asynchronous GET request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> GetTaskAsync(this FacebookClient facebookClient, IDictionary<string, object> parameters)
         {
             Contract.Requires(parameters != null);
@@ -79,6 +111,13 @@ namespace Facebook
             return GetTaskAsync(facebookClient, null, parameters);
         }
 
+        /// <summary>
+        /// Makes an asynchronous POST request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="path">The resource path.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> PostTaskAsync(this FacebookClient facebookClient, string path, IDictionary<string, object> parameters)
         {
             Contract.Requires(!(string.IsNullOrEmpty(path) && parameters == null));
@@ -104,6 +143,12 @@ namespace Facebook
             return tcs.Task;
         }
 
+        /// <summary>
+        /// Makes an asynchronous POST request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> PostTaskAsync(this FacebookClient facebookClient, IDictionary<string, object> parameters)
         {
             Contract.Requires(parameters != null);
@@ -111,6 +156,13 @@ namespace Facebook
             return PostTaskAsync(facebookClient, null, parameters);
         }
 
+        /// <summary>
+        /// Makes an asynchronous POST request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="path">The resource path.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> PostTaskAsync(this FacebookClient facebookClient, string path, object parameters)
         {
             Contract.Requires(!(string.IsNullOrEmpty(path) && parameters == null));
@@ -118,6 +170,12 @@ namespace Facebook
             return PostTaskAsync(facebookClient, path, ToDictionary(parameters));
         }
 
+        /// <summary>
+        /// Makes an asynchronous POST request to the Facebook server.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns>The task of the result.</returns>
         public static Task<object> PostTaskAsync(this FacebookClient facebookClient, object parameters)
         {
             Contract.Requires(parameters != null);
