@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FacebookClientTaskExtensions.cs" />
-    <Compile Include="FacebookOAuthClientExtensions.cs" />
+    <Compile Include="FacebookOAuthClientTaskExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

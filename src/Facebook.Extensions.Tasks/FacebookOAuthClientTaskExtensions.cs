@@ -8,7 +8,7 @@ namespace Facebook
     using System.Threading.Tasks;
     using Facebook;
 
-    public static class FacebookOAuthClientExtensions
+    public static class FacebookOAuthClientTaskExtensions
     {
         public static Task<object> GetApplicationAccessTokenTaskAsync(this FacebookOAuthClient facebookOAuthClient, IDictionary<string, object> paramaters)
         {
