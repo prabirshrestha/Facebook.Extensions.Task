@@ -8,7 +8,7 @@ namespace Facebook
     using System.Threading.Tasks;
     using Facebook;
 
-    public static class FacebookTaskExtensions
+    public static class FacebookClientTaskExtensions
     {
         /// <summary>
         /// Makes an asynchronous DELETE request to the Facebook server.
