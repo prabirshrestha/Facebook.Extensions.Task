@@ -214,6 +214,37 @@ namespace Facebook
             return tcs.Task;
         }
 
+        /// <summary>
+        /// Executes a FQL multiquery asynchronously.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="fql">The FQL query.</param>
+        /// <returns>The task of the result.</returns>
+        public static Task<object> QueryTaskAsync(this FacebookClient facebookClient, params string[] fql)
+        {
+            Contract.Requires(!string.IsNullOrEmpty(fql));
+
+            var tcs = CreateSource<object>(null);
+
+            EventHandler<FacebookApiEventArgs> handler = null;
+            handler = (sender, e) => TransferCompletionToTask<object>(tcs, e, () => e.GetResultData(), () => facebookClient.GetCompleted -= handler);
+
+            facebookClient.GetCompleted += handler;
+
+            try
+            {
+                facebookClient.QueryAsync(fql, tcs);
+            }
+            catch
+            {
+                facebookClient.GetCompleted -= handler;
+                tcs.TrySetCanceled();
+                throw;
+            }
+
+            return tcs.Task;
+        }
+
         private static TaskCompletionSource<T> CreateSource<T>(object state)
         {
             return new TaskCompletionSource<T>(state);
