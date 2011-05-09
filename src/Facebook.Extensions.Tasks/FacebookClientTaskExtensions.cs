@@ -278,12 +278,12 @@ namespace Facebook
             return tcs.Task;
         }
 
-        private static TaskCompletionSource<T> CreateSource<T>(object state)
+        internal static TaskCompletionSource<T> CreateSource<T>(object state)
         {
             return new TaskCompletionSource<T>(state);
         }
 
-        private static void TransferCompletionToTask<T>(TaskCompletionSource<T> tcs, AsyncCompletedEventArgs e, Func<T> getResult, Action unregisterHandler)
+        internal static void TransferCompletionToTask<T>(TaskCompletionSource<T> tcs, AsyncCompletedEventArgs e, Func<T> getResult, Action unregisterHandler)
         {
             if (e.UserState == tcs)
             {
