@@ -26,7 +26,7 @@ namespace CSNet40TPLSample
                     if (t.Exception == null)
                     {
                         dynamic result = t.Result;
-                        Console.WriteLine("Hi {0}", result.name);
+                        Console.WriteLine("Name: {0}", result.name);
                     }
                     else
                     {
