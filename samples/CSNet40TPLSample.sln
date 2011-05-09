@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSNet40TPLSample", "CSNet40TPLSample\CSNet40TPLSample.csproj", "{3B12D9A1-CDA5-410A-8B47-4C4F200E7C9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B12D9A1-CDA5-410A-8B47-4C4F200E7C9E}.Debug|x86.ActiveCfg = Debug|x86
+		{3B12D9A1-CDA5-410A-8B47-4C4F200E7C9E}.Debug|x86.Build.0 = Debug|x86
+		{3B12D9A1-CDA5-410A-8B47-4C4F200E7C9E}.Release|x86.ActiveCfg = Release|x86
+		{3B12D9A1-CDA5-410A-8B47-4C4F200E7C9E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
