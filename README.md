@@ -79,5 +79,5 @@ AsyncCtpLibrary\_Phone.dll). You need to reference AsyncCtpLibrary.dll for .NET 
 the example with TPL.
 
 ## License
-Facebook.Extensions.Tasks is intended to be used in both open-source and commercial environments. It is licensed
-under Microsoft Public License (Ms-PL).
+Facebook.Extensions.Tasks is intended to be used in both open-source and commercial environments. 
+It is licensed under Microsoft Public License (Ms-PL).
