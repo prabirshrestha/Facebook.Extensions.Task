@@ -222,7 +222,7 @@ namespace Facebook
         /// <returns>The task of the result.</returns>
         public static Task<object> QueryTaskAsync(this FacebookClient facebookClient, params string[] fql)
         {
-            Contract.Requires(!string.IsNullOrEmpty(fql));
+            Contract.Requires(fql != null);
 
             var tcs = CreateSource<object>(null);
 
@@ -238,6 +238,39 @@ namespace Facebook
             catch
             {
                 facebookClient.GetCompleted -= handler;
+                tcs.TrySetCanceled();
+                throw;
+            }
+
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Executes a batch request asynchronously.
+        /// </summary>
+        /// <param name="facebookClient">The facebook client.</param>
+        /// <param name="path">The resource path.</param>
+        /// <param name="batchParameters">The batch parameters.</param>
+        /// <returns>The task of the result.</returns>
+        public static Task<object> BatchTaskAsync(this FacebookClient facebookClient, params FacebookBatchParameter[] batchParameters)
+        {
+            Contract.Requires(batchParameters != null);
+            Contract.Requires(batchParameters.Length > 0);
+
+            var tcs = CreateSource<object>(null);
+
+            EventHandler<FacebookApiEventArgs> handler = null;
+            handler = (sender, e) => TransferCompletionToTask<object>(tcs, e, () => e.GetResultData(), () => facebookClient.PostCompleted -= handler);
+
+            facebookClient.PostCompleted += handler;
+
+            try
+            {
+                facebookClient.BatchAsync(batchParameters, tcs);
+            }
+            catch
+            {
+                facebookClient.PostCompleted -= handler;
                 tcs.TrySetCanceled();
                 throw;
             }
