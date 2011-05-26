@@ -1,12 +1,16 @@
 # Visual Studio Ignores
 [Bb]in/
 obj/
+App_Data/
 
 *.sln.cache
 *.suo
 *.user
 *.build.csdef
 *.ncb
+*sln.docstates
+
+*.userprefs # Mono develop
 
 # Visual Studio Extensions Ignores
 .vs10x
