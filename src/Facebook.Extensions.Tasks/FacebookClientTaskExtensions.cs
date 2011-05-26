@@ -6,7 +6,6 @@ namespace Facebook
     using System.ComponentModel;
     using System.Diagnostics.Contracts;
     using System.Threading.Tasks;
-    using Facebook;
 
     /// <summary>
     /// Task Parallel Library extension methods for <see cref="FacebookClient"/>.
@@ -252,7 +251,6 @@ namespace Facebook
         /// Executes a batch request asynchronously.
         /// </summary>
         /// <param name="facebookClient">The facebook client.</param>
-        /// <param name="path">The resource path.</param>
         /// <param name="batchParameters">The batch parameters.</param>
         /// <returns>The task of the result.</returns>
         public static Task<object> BatchTaskAsync(this FacebookClient facebookClient, params FacebookBatchParameter[] batchParameters)

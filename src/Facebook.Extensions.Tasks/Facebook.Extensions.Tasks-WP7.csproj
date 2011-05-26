@@ -48,8 +48,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Facebook">
-      <HintPath>..\packages\Facebook.5.0.25.0\lib\sl3-wp\Facebook.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\Facebook.5.0.26.0\lib\sl3-wp\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Contracts">
       <HintPath>..\packages\CodeContracts.Unofficial.1.0.0.2\lib\sl3-wp\Microsoft.Contracts.dll</HintPath>

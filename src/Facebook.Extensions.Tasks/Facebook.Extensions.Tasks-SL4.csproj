@@ -53,8 +53,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Facebook">
-      <HintPath>..\packages\Facebook.5.0.25.0\lib\sl4\Facebook.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\Facebook.5.0.26.0\lib\sl4\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.Windows" />

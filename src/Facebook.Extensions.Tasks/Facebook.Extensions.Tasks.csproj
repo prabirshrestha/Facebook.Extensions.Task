@@ -35,8 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Facebook">
-      <HintPath>..\packages\Facebook.5.0.25.0\lib\net40-client\Facebook.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\Facebook.5.0.26.0\lib\net40-client\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
