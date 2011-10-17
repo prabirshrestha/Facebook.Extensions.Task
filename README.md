@@ -1,3 +1,6 @@
+**Facebook.Extensions.Tasks is no longer under development. These XTaskAsync() methods are now part of 
+the core Facebook C# SDK starting from v5.3**
+
 # Facebook.Extensions.Tasks
 
 ## Overview
